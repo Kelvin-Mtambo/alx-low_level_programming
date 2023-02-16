@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-/*
- * main - the default function
- * with return type 0 always
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
