@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /*
- * main is the default function
+ * main - the default function
  * with return type 0 always
  */
 int main(void)
