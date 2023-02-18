@@ -1,12 +1,10 @@
-
 #include <stdio.h>
-
-
 /**
  * main - Default function
  *
  * Return: Returns a 0 (Success)
  */
+
 int main(void)
 {
 	int digit1, digit2;
@@ -29,3 +27,4 @@ int main(void)
 	putchar('\n');
 
 	return (0);
+}
