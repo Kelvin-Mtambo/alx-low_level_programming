@@ -1,8 +1,11 @@
 #include "main.h"
 
 /**
- * main - Print _putchar and a new line
- * return - Returns 0
+ * main - Entry point
+ *
+ * Description: 'the program's description'
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
