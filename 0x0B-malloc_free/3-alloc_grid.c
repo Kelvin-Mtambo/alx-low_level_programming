@@ -1,22 +1,35 @@
-#include "main.h"
-#include <stdio.h>
+#include "holberton.h"
 #include <stdlib.h>
 /**
- * free_grid - use free function on previous grid
- * @grid: 2 dim. array to free
- * @height: input height (size)
- * Return: free'd grid
- */
-void free_grid(int **grid, int height)
+ * alloc_grid - creates a 2d integer grid
+ * @width: number of columns
+ * @height: number of rows
+ * Return: pointer to grid or null
+ **/
+int **alloc_grid(int width, int height)
 {
-	int i;
+	int **grid, i, j;
 
-	if (grid != NULL || height != 0)
+	if (width < 1 || height < 1)
+		return (NULL);
+	grid = malloc(sizeof(int *) * height);
+	if (grid == NULL)
+		return (NULL);
+	for (i = 0; i < height; i++)
 	{
-		for (i = 0; i < height; i++)
+		grid[i] = malloc(sizeof(int) * width);
+		if (grid[i] == NULL)
 		{
-			free(grid[i]);
+			while (--i >= 0)
+				free(grid[i]);
+			free(grid);
+			return (NULL);
 		}
-		free(grid);
 	}
+	for (i = 0; i < height; i++)
+	{
+		for (j = 0; j < width; j++)
+			grid[i][j] = 0;
+	}
+	return (grid);
 }
