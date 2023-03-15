@@ -2,21 +2,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * free_grid - use free function on previous grid
- * @grid: 2 dim. array to free
- * @height: input height (size)
- * Return: free'd grid
+ * alloc_grid - nested loop to make grid
+ * @width: width input
+ * @height: height input
+ * Return: pointer to 2 dim. array
  */
-void free_grid(int **grid, int height)
+int **alloc_grid(int width, int height)
 {
-	int i;
+	int **grid;
+	int i, j;
 
-	if (grid != NULL || height != 0)
+	if (width <= 0 || height <= 0)
+		return (NULL);
+
+	grid = malloc(height * sizeof(int *));
+	if (grid == NULL)
+		return (NULL);
+
+	for (i = 0; i < height; i++)
 	{
-		for (i = 0; i < height; i++)
+		grid[i] = malloc(width * sizeof(int));
+		if (grid[i] == NULL)
 		{
-			free(grid[i]);
+			while (i >= 0)
+				free(grid[i--]);
+			free(grid);
+			return (NULL);
 		}
-		free(grid);
+
+
+		for (j = 0; j < width; j++)
+			grid[i][j] = 0;
 	}
+
+	return (grid);
 }
