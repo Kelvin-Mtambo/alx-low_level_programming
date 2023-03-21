@@ -1,1 +1,1 @@
-More C programming working with structures
+This is directory harbouring alx-low_level_programming work
